@@ -20,19 +20,19 @@ Run this command from the root directory of your WordPress installation:
 ```bash
 wp search-replace 'http://my-first-skool.local' 'http://localhost:10003' --skip-columns=guid --all-tables
 
+```
 
 
 
-Here’s exactly what you asked for — the content in pure **Markdown format**, ready to save as a `.md` file:
 
-````markdown
+
+
 ✅ **What it does:**
 
 - Replaces all instances of the old domain in the database  
 - Works across all tables and serialized data  
 - Skips the `guid` column (optional but recommended when migrating dev URLs)  
 
----
 
 💡 **Other Useful WP-CLI Commands**
 
