@@ -24,7 +24,25 @@ wp search-replace 'http://my-first-skool.local' 'http://localhost:10003' --skip-
 
 
 
+## Run this commands in sql (Multisite)
+```bash
+-- Update site URL in wp_site table
+UPDATE wp_site SET domain = 'localhost:10003' WHERE id = 1;
 
+-- Update home and siteurl in wp_blogs table
+UPDATE wp_blogs SET domain = 'localhost:10003' WHERE blog_id = 1;
+
+-- Update options table for the main site
+UPDATE wp_options SET option_value = 'http://localhost:10003' 
+WHERE option_name IN ('siteurl', 'home');
+
+-- If you have subsites, update them too
+UPDATE wp_options SET option_value = REPLACE(option_value, 'https://lsstg.wpenginepowered.com', 'http://localhost:10003');
+
+-- Update post content and meta
+UPDATE wp_posts SET post_content = REPLACE(post_content, 'https://lsstg.wpenginepowered.com', 'http://localhost:10003');
+UPDATE wp_postmeta SET meta_value = REPLACE(meta_value, 'https://lsstg.wpenginepowered.com', 'http://localhost:10003');
+```
 
 
 ✅ **What it does:**
