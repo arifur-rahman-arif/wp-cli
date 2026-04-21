@@ -20,6 +20,9 @@ Run this command from the root directory of your WordPress installation:
 ```bash
 wp search-replace 'http://my-first-skool.local' 'http://localhost:10003' --skip-columns=guid --all-tables
 
+Just this command:
+wp search-replace 'https://changemakers3.wpengine.com' 'https://www.changemakers.edu.sg' --all-tables
+
 ```
 
 
